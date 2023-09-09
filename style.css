@@ -54,6 +54,7 @@ footer {
 form {
     background-color: #F0F0F0;
     padding: 50px;
+    max-width:800px;
     text-align: center;
 }
 
