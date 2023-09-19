@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 
 const PORT = process.env.PORT || 3000;
+const ntxmValue = process.env.ntxm; // Accessing the environment variable
 
 // Set up Multer for handling file uploads
 const storage = multer.diskStorage({
