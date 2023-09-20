@@ -202,7 +202,7 @@
 
       // Modify the videoBox href to include query parameters
       var videoBox = document.createElement('a');
-      videoBox.href = 'play.html?video=' + encodeURIComponent(rowData.VideoUrl) + '&title=' + encodeURIComponent(rowData.Title);
+      videoBox.href = 'play.html?video=' + encodeURIComponent(rowData.VideoLink) + '&title=' + encodeURIComponent(rowData.Title);
       videoBox.className = 'video-box';
 
 
