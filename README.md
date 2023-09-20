@@ -19,7 +19,7 @@ This web application allows users to upload videos with associated poster images
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/nitikshh/demo.git
    ```
 
 2. Navigate to the project directory:
