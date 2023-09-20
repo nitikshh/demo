@@ -75,6 +75,3 @@ Contributions are welcome! If you have any suggestions, bug reports, or feature 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-Replace `"yourusername"` and `"your-repo"` with your actual GitHub username and repository name. This README.md template provides an overview of the project, installation instructions, usage guidelines, and information about the project's structure and licensing. Feel free to customize it further to suit your project's specific needs.
