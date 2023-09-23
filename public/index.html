@@ -190,69 +190,64 @@
   </div>
   </div>
 
-  <script>
-    // Function to create and append video elements
-    function createVideoElement(rowData) {
-      var videoContentCover = document.createElement('div');
-      videoContentCover.className = 'video-content-cover';
+<script>
+        // Function to create and append video elements
+        function createVideoElement(rowData) {
+            var videoContentCover = document.createElement('div');
+            videoContentCover.className = 'video-content-cover';
 
-      var videoContent = document.createElement('div');
-      videoContent.className = 'video-content';
-      videoContent.id = 'template-container';
+            var videoContent = document.createElement('div');
+            videoContent.className = 'video-content';
+            videoContent.id = 'template-container';
 
-      // Modify the videoBox href to include query parameters
-      var videoBox = document.createElement('a');
-      videoBox.href = 'play.html?video=' + encodeURIComponent(rowData.videoFileName) + '&title=' + encodeURIComponent(rowData.Title);
-      videoBox.className = 'video-box';
+            // Modify the videoBox href to include query parameters
+            var videoBox = document.createElement('a');
+            videoBox.href = 'play.html?video=' + encodeURIComponent(rowData.videoUrl) + '&title=' + encodeURIComponent(rowData.title);
+            videoBox.className = 'video-box';
 
+            var img = document.createElement('img');
+            img.src = rowData.posterUrl; // Poster
+            img.alt = rowData.title;
 
+            videoBox.appendChild(img);
+            videoContent.appendChild(videoBox);
+            videoContentCover.appendChild(videoContent);
 
-      var img = document.createElement('img');
-      img.src = rowData.posterFileName; // Poster
-      img.alt = rowData.posterFileName;
+            var videoDetails = document.createElement('div');
+            videoDetails.className = 'video-details';
 
-      videoBox.appendChild(img);
-      videoContent.appendChild(videoBox);
-      videoContentCover.appendChild(videoContent);
+            var detail = document.createElement('div');
+            detail.className = 'detail';
 
-      var videoDetails = document.createElement('div');
-      videoDetails.className = 'video-details';
+            var h3 = document.createElement('h3');
+            h3.className = 'title';
+            h3.textContent = rowData.title;
 
-      var detail = document.createElement('div');
-      detail.className = 'detail';
+            detail.appendChild(h3);
 
-      var h3 = document.createElement('h3');
-      h3.className = 'title';
-      h3.textContent = rowData.Title;
+            videoDetails.appendChild(detail);
 
+            videoContentCover.appendChild(videoDetails);
 
-      detail.appendChild(h3);
+            return videoContentCover;
+        }
 
-      videoDetails.appendChild(detail);
+        // Load video data from the server
+        fetch('/video-list')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Log the received data to the console
+                const container = document.getElementById('video-container');
 
-      videoContentCover.appendChild(videoDetails);
-
-      return videoContentCover;
-    }
-
-    // Load video data from the server
-    fetch('/video-list')
-      .then(response => response.json())
-      .then(data => {
-        console.log(data); // Log the received data to the console
-        const container = document.getElementById('video-container');
-
-        data.forEach(rowData => {
-          const videoElement = createVideoElement(rowData);
-          container.appendChild(videoElement);
-        });
-      })
-      .catch(error => {
-        console.log(error); // Log the actual error message or error object
-      });
-
-
-  </script>
+                data.forEach(rowData => {
+                    const videoElement = createVideoElement(rowData);
+                    container.appendChild(videoElement);
+                });
+            })
+            .catch(error => {
+                console.log(error); // Log the actual error message or error object
+            });
+    </script>
   <script>
     const container = document.querySelector(".container"),
       mainVideo = container.querySelector("video"),
