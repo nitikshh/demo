@@ -202,14 +202,14 @@
 
       // Modify the videoBox href to include query parameters
       var videoBox = document.createElement('a');
-      videoBox.href = 'play.html?video=' + encodeURIComponent(rowData.VideoLink) + '&title=' + encodeURIComponent(rowData.Title);
+      videoBox.href = 'play.html?video=' + encodeURIComponent(rowData.videoFileName) + '&title=' + encodeURIComponent(rowData.Title);
       videoBox.className = 'video-box';
 
 
 
       var img = document.createElement('img');
-      img.src = rowData.PosterLink; // Use "rowData.PosterUrl" with a capital "P"
-      img.alt = rowData.PosterLink;
+      img.src = rowData.posterFileName; // Poster
+      img.alt = rowData.posterFileName;
 
       videoBox.appendChild(img);
       videoContent.appendChild(videoBox);
